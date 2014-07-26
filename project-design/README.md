@@ -15,7 +15,7 @@
   - Require questions from each but allow students to choose a focus for more complex queries
  - Decide upon an [open source license](http://choosealicense.com/) to use
  - System setup plans can be found [here](server-specs.md)
- - Will be hosted at [sql-project.com](sql-project.com) once completed
+ - Will be hosted at [sql-project.com](http://sql-project.com) once completed
   - SQL Server accessible via sql.sql-project.com, ask for login details
 
 ---
