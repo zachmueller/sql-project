@@ -8,4 +8,12 @@
 
 ## AMEX.csv
  - List of company stock tickers and names
- - Downloaded from [this page](https://s3.amazonaws.com/quandl-static-content/Ticker+CSV%27s/Stock+Exchanges/AMEX.csv)
+ - Downloaded from [here](https://s3.amazonaws.com/quandl-static-content/Ticker+CSV%27s/Stock+Exchanges/AMEX.csv)
+
+## ZIP_CODES.txt
+ - List of ZIP codes, Latitude, Longitude, City, State, County, Zip Class
+ - Downloaded from [this page](http://www.sqldbpros.com/2011/11/free-zip-code-city-county-state-csv/)
+
+## globalareacodes.csv
+ - List of Country, Country Code, Area, Area Code
+ - Downloaded from [this page](http://aggdata.com/free/international-calling-codes)
