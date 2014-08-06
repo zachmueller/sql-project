@@ -80,6 +80,13 @@
  - Include functionality to purposefully create fraudulent activity, broken accounting processes, etc.
   - Use R to generate accounting detail material (Excel spreadsheets) as backup for journal entries, ensuring some are different from what's in the database
 
+### Data Set Focus
+ - Revenue/Sales focus
+  - $X in sales, how to get comfortable with its accuracy
+  - Start with invoices and build supporting documents and JEs from there
+  - Can incorporate fraudulent invoices easily
+  - Monthly sales reports in Excel files (compare workability against single SQL table)
+
 ---
 
 ## 4. Tutorials
