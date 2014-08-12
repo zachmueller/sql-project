@@ -85,6 +85,8 @@
   - $X in sales, how to get comfortable with its accuracy
   - Start with invoices and build supporting documents and JEs from there
   - Can incorporate fraudulent invoices easily
+   - Sales person marking up sales amount after deal closed
+   - Other employee creating fictitious invoices
   - Monthly sales reports in Excel files (compare workability against single SQL table)
 
 ---
@@ -92,12 +94,19 @@
 ## 4. Tutorials
 ### Set up blog on website
  - Likely use [ghost](https://ghost.org/) blogging software
+ - Hosted at [sql-project.com](http://sql-project.com)
 
 ---
 
 ## 5. Project
 ### Tasks
- - Any "practice problems" from the tutorials
- - A few "easy" problems from each focus (Accounting, Finance, etc.)
+ - Any practice problems from the tutorials (not required for project grade, possibly required as homework?)
+ - A few "Easy" problems from each focus (Accounting, Finance, etc.)
+ - Choose from any focus for "Medium" and "Hard" problems
+ - Number of problems:
+  - Easy: 3-5
+  - Medium: 5-7
+  - Hard: 2-3
+  - Total: 10-15
 
 ---
