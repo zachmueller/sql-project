@@ -17,3 +17,7 @@
 ## globalareacodes.csv
  - List of Country, Country Code, Area, Area Code
  - Downloaded from [this page](http://aggdata.com/free/international-calling-codes)
+
+## state-sales-tax-rates-2014.csv
+ - List of States, their state-wide sales tax rates, and their average local sales tax rates
+ - Extracted from [this article](http://taxfoundation.org/article/state-and-local-sales-tax-rates-2014)
