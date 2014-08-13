@@ -9,7 +9,7 @@ GO
 CREATE TABLE dbo.je_lines (
 	je_header_id INT NOT NULL
 		CONSTRAINT fk_je_lines_je_header_id FOREIGN KEY  
-		REFERENCES dbo.je_headers (je_header_id)
+		REFERENCES dbo.je_headers (je_header_id),
 	line_number INT NOT NULL,
 	company_code NCHAR(3) NOT NULL,
 	department_code NCHAR(4) NOT NULL,

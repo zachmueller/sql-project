@@ -9,7 +9,7 @@ GO
 CREATE TABLE dbo.sales_invoice_lines (
 	invoice_id INT NOT NULL
 		CONSTRAINT fk_sales_invoice_lines_invoice_id FOREIGN KEY  
-		REFERENCES dbo.sales_invoice_headers (invoice_id)
+		REFERENCES dbo.sales_invoice_headers (invoice_id),
 	line_number INT NOT NULL,
 	product_id INT NOT NULL
 		CONSTRAINT fk_sales_invoice_lines_product_id FOREIGN KEY  
