@@ -3,6 +3,7 @@
 ## Data set focus
  - Revenue/Sales data
  - Start with invoices, build up from there
+ - Build schema with only the necessary fields, will add complexity as design progresses
 
 ## Simplifying assumptions
  - US only (single currency)
@@ -21,8 +22,8 @@
  - Journal Entries
 
 ## Databases
- - **BuilderDB**: Used by the R script during the data set building process to store all raw data, including flags and amounts of fraudulent activity. Not accessible to students.
- - **CompanyDB**: Stores the final data set in a typical corporate structure. Directly referenced by the students for accomplishing project tasks.
+ - *BuilderDB*: Used by the R script during the data set building process to store all raw data, including flags and amounts of fraudulent activity. Not accessible to students.
+ - *CompanyDB*: Stores the final data set in a typical corporate structure. Directly referenced by the students for accomplishing project tasks.
 
 ---
 
