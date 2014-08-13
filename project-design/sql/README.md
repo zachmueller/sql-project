@@ -68,6 +68,7 @@
   - `invoice_id`
   - `invoice_date`
   - `customer_id`
+  - `sales_employee_id`
   - ``
  - Purpose: Header detail for the invoice data.
 
