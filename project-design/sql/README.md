@@ -58,7 +58,7 @@
  - Fields:
   - `product_id`
   - `product_name`
-  - `sales_price`
+  - `cost`
   - `list_price`
  - Purpose: Contains list of all products offered by the company.
 
