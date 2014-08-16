@@ -8,7 +8,8 @@
 ## Simplifying assumptions
  - US only (single currency)
  - One "store" location
- - Cash sales only (no storing credit card data, no receivables)
+ - Cash sales only (no storing credit card data)
+ - Only one sales person earns commissions per sale (no shared commissions)
  - No shipping (purchasing or sales)
  - No discounts on sales
  - No returns
@@ -93,7 +94,7 @@
   - `created_date`
   - ``
  - Purpose: Contains all journal entries relevant to the project tasks. Will be built based upon the raw sales invoices data from the BuilderDB.
- - Accounts to be hit in sales process: Revenue, Cost of Goods Sold, Inventory, Cash (no A/R for now), Taxes Payable
+ - Accounts to be hit in sales process: Revenue, Cost of Goods Sold, Inventory, Cash, Taxes Payable, Salaries Payable
 
 ## Journal Entries (Lines)
  - Table: `dbo.je_lines`
@@ -108,3 +109,17 @@
   - `accounted_cr`
   - ``
  - Purpose: Contains all journal entry lines relevant to the project tasks. Will be built based upon the raw sales invoices data from the BuilderDB.
+
+---
+
+## Commissions
+ - Table: `dbo.commissions`
+ - Fields:
+  - `invoice_id`
+  - `employee_id`
+  - `commission_phase`
+  - `commission_amount`
+  - `payment_status`
+  - `created_date`
+  - `updated_date`
+ - Purpose: Tracks all commissions for product sales. Each sale triggers three new records, one for each commission payout phase.

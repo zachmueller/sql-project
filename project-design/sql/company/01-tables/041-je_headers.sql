@@ -27,7 +27,7 @@ summary:	>
 			raw sales invoices data from the BuilderDB.
 			Some accounts to be hit in sales process include
 			Revenue, Cost of Goods Sold, Inventory,
-			Cash (no A/R for now), Taxes Payable.
+			Cash, Taxes Payable, Salaries Payable.
 Revisions:
 - version 1:
 		Modification: Initial design
