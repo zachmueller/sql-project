@@ -13,10 +13,9 @@
  - Accounting and Finance focus (in regards to the questions being asked)
   - Build two "tracks" (Accounting vs. Finance; possibly break Accounting into Audit vs. Tax)
   - Require questions from each but allow students to choose a focus for more complex queries
- - Decide upon an [open source license](http://choosealicense.com/) to use
  - System setup plans can be found [here](server-specs.md)
  - Will be hosted at [sql-project.com](http://sql-project.com) once completed
-  - SQL Server accessible via sql.sql-project.com, ask for login details
+  - SQL Server accessible via sql.sql-project.com, ask for login details (currently offline)
 
 ---
 
