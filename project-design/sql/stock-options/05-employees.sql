@@ -8,9 +8,10 @@ GO
 
 CREATE TABLE dbo.employees (
 	employee_id INT NOT NULL,
-	first_name NVARCHAR(256) NULL,
-	last_name NVARCHAR(256) NULL,
-	department_code NCHAR(4) NULL
+	first_name NVARCHAR(256) NOT NULL,
+	last_name NVARCHAR(256) NOT NULL,
+	hire_date DATE NOT NULL,
+	department_code NCHAR(4) NOT NULL
 		CONSTRAINT fk_employees_department_code FOREIGN KEY  
 		REFERENCES dbo.departments (department_code),
 	CONSTRAINT pk_employees
@@ -28,6 +29,10 @@ Revisions:
 		Modification: Initial design
 		Author: Zach Mueller
 		Date: 2015-03-10
+- version 1.0.1:
+		Modification: Add hire date field, set fields to non-NULLable
+		Author: Zach Mueller
+		Date: 2015-03-13
 '
 	,@level0type = N'SCHEMA'
 	,@level0name = N'dbo'
