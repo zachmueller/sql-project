@@ -11,8 +11,6 @@
   - Example 2: Data set with >1M records (too big for Excel)
   - Example 3: Summarizing monthly report Excel files vs. single SQL table
  - Accounting and Finance focus (in regards to the questions being asked)
-  - Build two "tracks" (Accounting vs. Finance; possibly break Accounting into Audit vs. Tax)
-  - Require questions from each but allow students to choose a focus for more complex queries
  - System setup plans can be found [here](server-specs.md)
  - Will be hosted at [sql-project.com](http://sql-project.com) once completed
   - SQL Server accessible via sql.sql-project.com, ask for login details (currently offline)
@@ -46,29 +44,14 @@
 ---
 
 ## 2. Questions
-### Accounting (General)
- - Apply different costing methods
- - Create depreciation schedules
+### Stock Options
+ - Focus on valuation of stock options outstanding at various points in time for the company
+ - Project write-up will include info on NOL carryforward and questions around how the stock options impact the company's valuation
 
-### Accounting (Audit)
- - Fraudulent journal entries
- - All journal entries impacting X account(s)
- - Non-compliant processes or accounting practices
- - Identify duplicate records
-
-### Accounting (Tax)
- - Payroll taxes
- - International taxes (VAT, GST, etc.)
- - Complex idea:
-  - Separate database with state tax rules (apportionment), have student use CASE .. END to apply rules varying by states
-
-### Finance
- - Depreciation allocation
- - Identify fully depreciated assets
- - Largest supplier/vendor
- - Complex ideas:
-  - P&L by product, group, etc.
-  - Most costly/profitable customer, product, etc.
+### Fixed Assets
+ - Compare the Tax vs Book valuation of the company's fixed assets
+ - Investigate whether any fraud or errors exist in the asset data
+ - Calculate expected GAAP Accounting impact if some assets were to be sold
 
 ---
 
@@ -80,19 +63,19 @@
   - Use R to generate accounting detail material (Excel spreadsheets) as backup for journal entries, ensuring some are different from what's in the database
 
 ### Data Set Focus
- - Revenue/Sales focus
-  - $X in sales, how to get comfortable with its accuracy
-  - Start with invoices and build supporting documents and JEs from there
-  - Can incorporate fraudulent invoices easily
-   - Sales person marking up sales amount after deal closed
-   - Other employee creating fictitious invoices
-  - Monthly sales reports in Excel files (compare workability against single SQL table)
+ - Stock Options
+  - Table tracking all stock option grants
+  - Table tracking all transactions of the stock options (exercises, expirations, etc.)
+  - Include a separate table with the daily stock price over the life of the company
+ - Fixed Assets
+  - Basic asset-related data, to include cost, purchase date, type, sales/retirements, etc.
+  - Incorporate fraud or errors on data entry for some assets
 
 ---
 
 ## 4. Tutorials
 ### Set up blog on website
- - Likely use [ghost](https://ghost.org/) blogging software
+ - Will host website on [Squarespace](http://www.squarespace.com/)
  - Hosted at [sql-project.com](http://sql-project.com)
 
 ---
