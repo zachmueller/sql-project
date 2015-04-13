@@ -39,3 +39,4 @@ Icon
 # additional files/folders to ignore
 answers/
 # project-design/R/playground.r
+.Rhistory
