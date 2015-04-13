@@ -136,7 +136,21 @@ hiring.prob[1] <- 1 - sum(hiring.prob) + hiring.prob[1];
 dates <- sample(hiring.dates, employees[,.N], prob = hiring.prob, replace = TRUE);
 employees[, hire.date:=dates];
 
+
 # Terminations - use truncnorm to limit tenure between 1 year to 5 years
 ##	for employees who leave. Only a small percentage of employees are
 ##	assumed to be terminated or leave.
-# add boolean field term to flag which employees are terminated at some point
+# fill employees data.table with termination dates
+term.prob <- 0.1;
+term.flags <- sample(c(TRUE, FALSE), employees[,.N], 
+	prob = c(term.prob, 1 - term.prob), replace = TRUE);
+days.employed <- rtruncnorm(employees[,.N], a = 90, b = 365*5,
+	mean = 365*2, sd = 180);
+employees[, tenure.days:=round(term.flags * days.employed, 0)];
+employees[, term.date:=as.Date(ifelse(tenure.days,
+	hire.date + days(tenure.days), NA))];
+
+# remove any termination dates that are after the last hiring date
+last.hire.date <- max(hiring.dates);
+employees[ term.date >= last.hire.date, term.date:=NA];
+employees[, tenure.days:=NULL];

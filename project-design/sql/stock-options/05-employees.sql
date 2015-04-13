@@ -11,6 +11,7 @@ CREATE TABLE dbo.employees (
 	first_name NVARCHAR(256) NOT NULL,
 	last_name NVARCHAR(256) NOT NULL,
 	hire_date DATE NOT NULL,
+	termination_date DATE NULL,
 	department_code NCHAR(4) NOT NULL
 		CONSTRAINT fk_employees_department_code FOREIGN KEY  
 		REFERENCES dbo.departments (department_code),
@@ -33,6 +34,10 @@ Revisions:
 		Modification: Add hire date field, set fields to non-NULLable
 		Author: Zach Mueller
 		Date: 2015-03-13
+- version 1.0.2:
+		Modification: Add termination date field
+		Author: Zach Mueller
+		Date: 2015-04-12
 '
 	,@level0type = N'SCHEMA'
 	,@level0name = N'dbo'
