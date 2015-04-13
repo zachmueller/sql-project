@@ -9,6 +9,8 @@
 library("data.table");
 library("lubridate");
 library("ggplot2");
+library("truncnorm");
+library("zoo");
 
 library("RODBC");
 library("xlsx");
@@ -93,7 +95,7 @@ last.names <- data.table(read.csv(file.name));
 # set inputs
 start.headcount <- 10;
 end.headcount <- 1000;
-company.start.date <- as.Date("1985-01-01");
+company.start.date <- min(stock[,Date]) # - years(5);
 
 # add some randomization to the inputs
 start.headcount <- round(rnorm(1, mean = start.headcount, sd = (start.headcount * 0.15)));
@@ -105,19 +107,36 @@ company.start.date <- company.start.date + round(rnorm(1, mean = 0, sd = 60), 0)
 employees <- data.table(first.name = sample(first.names[, firstname],
 	end.headcount, replace=TRUE), last.name = sample(last.names[, lastname],
 	end.headcount, replace=TRUE));
+
 # choose a random set (around years * 8) of dates between company.start.date and
 ##	the end date as batch hiring days.
 end.date <- max(stock[, Date]);
 hire.days <- round(rnorm(1, mean = (as.integer(end.date
 	- company.start.date) / 365) * 8, sd = 10), 0);
-hiring.dates <- sample(seq(from = company.start.date,
-	to = end.date, by = "1 day"), hire.days);
+hiring.dates <- sample(stock[,Date], hire.days);
+hiring.dates <- hiring.dates[order(hiring.dates)];
 hiring <- data.table(Date = hiring.dates);
 setkey(hiring, Date);
 hiring[, I:=.I];
 hiring[stock, roll=TRUE][, sum(price), by = I];
 
-##	Then, using the stock price data as a proxy, fill
-##	in each employee's hiring date as one of the hiring dates
-##	randomly selected above
-####	Area under curve between current/prior hire dates as percent of total area under curve?
+##	Then, using the stock price data as a proxy, fill in each 
+##	employee's hiring date as one of the hiring dates randomly selected above
+####	Hire count based on area under curve (AUC) between hire dates as percent of total AUC?
+####	Approximate AUC calc with day's stock price (assume each closing price is equal to
+####	only lasting effectively one day (rather than include weekends in x-axis for calc)
+# use cumulative percent of AUC for easy join to hiring.dates
+stock[, AUC.pct:=cumsum(price)/sum(price)];
+hiring.prob <- stock[J(hiring.dates), AUC.pct][["AUC.pct"]];
+hiring.prob <- diff(c(0, hiring.prob), lag = 1);
+hiring.prob[1] <- 1 - sum(hiring.prob) + hiring.prob[1];
+
+# using the calculated sampling percentages and hiring dates
+##	create and fill in new field hire.date for all employees
+dates <- sample(hiring.dates, employees[,.N], prob = hiring.prob, replace = TRUE);
+employees[, hire.date:=dates];
+
+# Terminations - use truncnorm to limit tenure between 1 year to 5 years
+##	for employees who leave. Only a small percentage of employees are
+##	assumed to be terminated or leave.
+# add boolean field term to flag which employees are terminated at some point
